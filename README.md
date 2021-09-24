@@ -21,7 +21,7 @@ Weather data is represented like this:
         "city" : "Dallas",
         "state" : "Texas"
     },
-    "temperature" : [89.7, 84.3, 91.2, 93.1]  // Float array. It stores temperatures (F°) hour by hour for the current location.
+    "temperature" : [89.7, 84.3, 91.2, 93.1]  
 }
 ```
 ###Required Endpoints 
