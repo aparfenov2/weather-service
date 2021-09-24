@@ -1,13 +1,13 @@
-#Weather Service Challenge
+# Weather Service Challenge
 
-###Requirements 
+### Requirements 
 
 - API Rest using Spring Boot. 
 - Java 11
 - H2 Database
 - The service must run on port 8081. 
 
-###Data
+### Data
 
 Weather data is represented like this: 
 
@@ -21,45 +21,45 @@ Weather data is represented like this:
         "city" : "Dallas",
         "state" : "Texas"
     },
-    "temperature" : [89.7, 84.3, 91.2, 93.1]  
+    "temperature" : [89.7, 84.3, 91.2, 93.1]  // Float array. It stores temperatures (F°) hour by hour for the current location.
 }
 ```
-###Required Endpoints 
+### Required Endpoints 
 
 
-####GET /weather
+#### GET /weather
 
 Gets all stored weather data in the system. Success code : HTTP 200.
 
-####GET /weather/{weatherId}
+#### GET /weather/{weatherId}
 
 Gets a weather by searching by id. Success code : HTTP 200. 
 If the id does not exists : HTTP 404. 
 
-####GET /weather?date={date}
+#### GET /weather?date={date}
 
 Gets all weather data by searching by date. Success code : HTTP 200.
 If there is no data for that date : HTTP 404
 
-####POST /weather
+#### POST /weather
 
 Saves a new weather element. Success code : HTTP 201.
 If there is one element with the same id already stored in the database : HTTP 400. 
 
-####DELETE /weather/{weatherId}
+#### DELETE /weather/{weatherId}
 
 Deletes one element by id. Success code: HTTP 200. 
 If element does not exist: HTTP 404.
 
-####DELETE /weather
+#### DELETE /weather
 
 Deletes all stored weather data in the system. Success code: HTTP 200. 
 
-###ER Diagram
+### ER Diagram
 
 
 
-##Challenge: 
+## Challenge: 
 
 - Implement endpoints. 
 - Implement unit tests.
