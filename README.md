@@ -1,6 +1,6 @@
 # Weather Service Challenge
 
-### Requirements 
+### Technical Requirements 
 
 - API Rest using Spring Boot. 
 - Java 11
