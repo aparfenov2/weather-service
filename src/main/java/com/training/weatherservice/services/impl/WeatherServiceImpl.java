@@ -29,9 +29,7 @@ public class WeatherServiceImpl implements WeatherService {
         if (date != null && !date.isEmpty()){
             try{
                 List<WeatherData> weatherData = weatherDataRepository.findByDate(DateUtils.formatDate(date));
-                return weatherData != null && weatherData.size() > 0 ?
-                        new ResponseEntity<>(weatherData, HttpStatus.OK) :
-                        new ResponseEntity<>(WEATHER_NOT_FOUND_EXCEPTION, HttpStatus.NOT_FOUND);
+                return weatherData != null && weatherData.size() > 0 ? new ResponseEntity<>(weatherData, HttpStatus.OK) : new ResponseEntity<>(WEATHER_NOT_FOUND_EXCEPTION, HttpStatus.NOT_FOUND);
             } catch (DateTimeParseException e){
                 return new ResponseEntity<>(FORMAT_EXCEPTION, HttpStatus.BAD_REQUEST);
             }
@@ -45,8 +43,7 @@ public class WeatherServiceImpl implements WeatherService {
 
         Optional<WeatherData> optionalWeatherData = weatherDataRepository.findById(id);
         return optionalWeatherData.<ResponseEntity<Object>>map(weatherData ->
-                new ResponseEntity<>(weatherData, HttpStatus.OK)).orElseGet(() ->
-                    new ResponseEntity<>(WEATHER_NOT_FOUND_EXCEPTION, HttpStatus.NOT_FOUND));
+                new ResponseEntity<>(weatherData, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(WEATHER_NOT_FOUND_EXCEPTION, HttpStatus.NOT_FOUND));
     }
 
 
