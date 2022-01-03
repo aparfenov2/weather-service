@@ -57,7 +57,7 @@ Deletes all stored weather data in the system. Success code: HTTP 200.
 
 ### ER Diagram
 
-![Model BD] (src/main/resources/er-diagram.jpg "ER Diagram")
+![Model BD](src/main/resources/er-diagram.jpg "ER Diagram")
 
 ## Challenge: 
 
