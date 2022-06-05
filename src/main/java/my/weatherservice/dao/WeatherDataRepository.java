@@ -1,6 +1,5 @@
-package com.training.weatherservice.dao;
+package my.weatherservice.dao;
 
-import com.training.weatherservice.domain.WeatherData;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +10,6 @@ import java.util.List;
 public interface WeatherDataRepository extends JpaRepository<WeatherData, Long> {
 
     List<WeatherData> findByDate(LocalDate date);
-
+    List<WeatherData> findByDateAndLocation_City(LocalDate date, String city);
+    List<WeatherData> findByLocation_CityOrderByIdDesc(String city);
 }

@@ -1,4 +1,4 @@
-package com.training.weatherservice.util;
+package my.weatherservice;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

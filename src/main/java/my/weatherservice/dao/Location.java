@@ -1,4 +1,4 @@
-package com.training.weatherservice.domain;
+package my.weatherservice.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
