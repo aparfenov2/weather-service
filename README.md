@@ -1,73 +1,27 @@
-# Weather Service Challenge
+REST сервис хранения и предоставления информации о температуре в городах.
 
-### Technical Requirements 
+- перечень городов (с уточнение страны, где он находится) на англ. языке задается в настройках сервиса;
+- температура для городов из заданного списка запрашивается из трех публично доступных REST сервисов погоды (конкретные сервисы-провайдеры погоды найти самостоятельно);
+- значения, полученные от сервисов для одного и того города в текущий момент, усредняются и складываются в БД (можно in-memory database) с текущим timestamp;
+- периодичность опроса сервисов задается в настройках приложения;
+- сервис должен предоставлять REST-ендпоинт, через который, указав город/страну и дату, можно получить все имеющиеся в БД в эту дату значения температуры для данного города;
+- если дата в предыдущем запросе не указана, возвращается последнее известное значение для города (ака "температура сейчас");
 
-- API Rest using Spring Boot. 
-- Java 11
-- H2 Database
-- The service must run on port 8081. 
+Результат присылать в виде репозитория git с историей коммитов (без squash и удаления веток).
 
-### Data
+На логику сервиса должны быть написаны, как минимум, юнит-тесты (JUnit, Mockito). В юнит-тестах учесть краевые сценарии. 
 
-Weather data is represented like this: 
+Плюсом идет наличие интеграционных тестов.
 
-```json
-{
-    "id" : 37892, 
-    "date" : "2020-09-15",
-    "location" : {
-        "lat" : 32.7767,
-        "lon" : 96.7970,
-        "city" : "Dallas",
-        "state" : "Texas"
-    },
-    "temperature" : [89.7, 84.3, 91.2, 93.1]  // Float array. It stores temperatures (F°) hour by hour for the current location.
-}
-```
-### Required Endpoints 
+Стек - Spring Boot, Java 8.
 
 
-#### GET /weather
+эндпоинты:
 
-Gets all stored weather data in the system. Success code : HTTP 200.
+http://localhost:8081/weather?country=RU&city=Chelyabinsk
+http://localhost:8081/weather?country=RU&city=Moscow&date=2022-06-05
+http://localhost:8081/weather?country=RU&city=Dallas&date=2020-09-15
 
-#### GET /weather/{weatherId}
-
-Gets a weather by searching by id. Success code : HTTP 200. 
-If the id does not exists : HTTP 404. 
-
-#### GET /weather?date={date}
-
-Gets all weather data by searching by date. Success code : HTTP 200.
-If there is no data for that date : HTTP 404
-
-#### POST /weather
-
-Saves a new weather element. Success code : HTTP 201.
-If there is one element with the same id already stored in the database : HTTP 400. 
-
-#### DELETE /weather/{weatherId}
-
-Deletes one element by id. Success code: HTTP 200. 
-If element does not exist: HTTP 404.
-
-#### DELETE /weather
-
-Deletes all stored weather data in the system. Success code: HTTP 200. 
-
-### ER Diagram
-
-![Model BD](src/main/resources/er-diagram.jpg "ER Diagram")
-
-## Challenge: 
-
-- Implement endpoints. 
-- Implement unit tests.
-- Insert mock data in H2 database when launching the application. 
-- Use Java 8+ features (Lambdas, Streams, Functionals, Time API, Collections API improvements). 
-
-
-
-
-
-
+источники:
+weather.yandex.ru
+openweathermap.org
